@@ -36,7 +36,7 @@ def Pi(num_steps):
     
     # lakukan penjumlahan dari local_sum proses-proses yang ada ke proses 0
     # bisa digunakan reduce atau p2p sum
-    sum = comm.allrecude(local_sum, op = MPI.SUM)
+    sum = comm.allreduce(local, op = MPI.SUM)
     
     # jika saya proses dengan rank 0  maka tampilkan hasilnya
     if rank == 0:
