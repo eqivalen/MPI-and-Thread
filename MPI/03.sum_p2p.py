@@ -25,9 +25,9 @@ if rank == 0:
         data = comm.recv(source=i, tag=rank)
         print(data)
         sum += data['send']
-    print("sum :", sum)
+    print("sum - ", sum)
 	
 # jika bukan proses dengan rank 0, saya akan mengirimkan nilai proses saya ke proses dengan rank=0
 else:
-        data = {"rank" : rank, "destination" : 0, "send" : generate}
-	comm.send(data, dest=0, tag=0)
+    data = {'rank' : rank, 'dest' : 0, 'send' : generate}
+    comm.send(data, dest = 0, tag = 0)
